@@ -1,0 +1,28 @@
+image: node:10.15.3
+
+pipelines:
+  branches:
+    dev:
+    - step:
+        caches:
+          - node
+        script:
+          - ssh -tt bitbucket-auth@34.87.91.154<<EOF
+            sudo -s
+            /vnlp/bitbucket/auth.sh
+            exit
+            exit
+            EOF
+
+    beta:
+      - step:
+          caches:
+            - node
+          script:
+            - ssh -tt bitbucket-auth@34.87.94.31<<EOF
+              sudo -s
+              /vnlp/bitbucket/auth.sh
+              exit
+              exit
+              EOF
+
