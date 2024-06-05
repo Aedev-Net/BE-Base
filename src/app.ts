@@ -19,7 +19,7 @@ class App {
         this._initRouters();
         this._initHandleException();
         new route(this.app)._initRoute();
-        await db.connect();
+        // await db.connect();
     }
 
 
