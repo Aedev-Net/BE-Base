@@ -4,12 +4,14 @@ import cors from 'cors';
 import morgan from 'morgan';
 import db from './db/database';
 import route from './routers/routers'
+import AppUser from './models/app-user.model'
 
 class App {
     public app: Application;
     constructor() {
         this.app = express();
         this._setConfig();
+        AppUser.sync({alter:true})
     }
 
     private async _setConfig() {
