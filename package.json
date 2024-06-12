@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon",
+    "dev": "NODE_ENV=DEV nodemon",
+    "local": "NODE_ENV=LOCAL nodemon",
+    "prod": "NODE_ENV=LOCAL nodemon",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/server.js"
   },
