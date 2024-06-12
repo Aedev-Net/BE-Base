@@ -1,3 +1,32 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+const getENVFile = () => {
+    let envFile = ENV.dev;
+    const nodeENV = process.env.NODE_ENV;
+    switch (nodeENV) {
+        case 'PROD':
+            envFile = ENV.prod;
+            break;
+        case 'DEV':
+            envFile = ENV.dev;
+            break;
+        case 'LOCAL':
+            envFile = ENV.local;
+            break;
+        default:
+            envFile = ENV.local;
+    }
+    return envFile;
+};
+const ENV = {
+    prod: 'production',
+    dev: 'development',
+    stag: 'staging',
+    local: 'local',
+};
+
+dotenv.config({path: __dirname + '/../env/.env.' + getENVFile()});
 export const appConfig = Object.freeze({
     env: {
         port: process.env.PORT || 3000,
@@ -10,12 +39,12 @@ export const appConfig = Object.freeze({
         salt: process.env.ENCRYPTION_SALT
     },
     db: {
-        uri: process.env.DB_URI || 'mongodb+srv://admin:qgukiMq6rVnwjhl0@dataapp.sdzp7.gcp.mongodb.net/anime_movie?retryWrites=true&w=majority',
-        options: {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useUnifiedTopology: true,
-        }
+        connectionLimit: 10,
+        host: process.env.HOST,
+        user: process.env.USER_NAME,
+        password: process.env.PASS_WORD,
+        database: process.env.DATABASE,
+        charset: 'utf8mb4',
     },
     serverApiKey: process.env.SERVER_API_KEY || 'api_key',
     remoteServers: {

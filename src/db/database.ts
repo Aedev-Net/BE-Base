@@ -1,12 +1,9 @@
-import mongoose from 'mongoose';
+import {Sequelize} from 'sequelize';
 import {appConfig} from '../config/app.config';
 
-class Database {
-    async connect(){
-        mongoose.Promise = global.Promise;
-        const db = await mongoose.connect(appConfig.db.uri, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log('Connected to database');
-        return db;
-    }
-}
-export default new Database();
+const dbConnection = new Sequelize(appConfig.db.database, appConfig.db.user, appConfig.db.password, {
+    host: 'localhost',
+    dialect: 'mariadb',
+    logging: true,
+})
+export default dbConnection;
