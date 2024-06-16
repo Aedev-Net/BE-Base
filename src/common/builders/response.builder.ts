@@ -34,7 +34,7 @@ function getKeyByValue(object:any, value:number) {
     return Object.keys(object).find(key => object[key] === value);
 }
 
-function getErrorResponse(httpCode=HttpCode.OK, data:any) {
+function getErrorResponse(httpCode:number =HttpCode.OK, data:any) {
     const res: LooseObject = {
         success: false
     }
@@ -55,7 +55,7 @@ function getSuccessResponse(data:any) {
 }
 class ResponseBuilder {
     constructor() { }
-    build( httpCode = HttpCode.OK, data:any) {
+    build( httpCode: number = HttpCode.OK, data:any) {
         switch (httpCode) {
             case HttpCode.OK:
                 return getSuccessResponse(data);

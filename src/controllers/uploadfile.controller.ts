@@ -7,9 +7,8 @@ import  fs from 'fs';
 class UploadFileController extends BaseController {
     uploadFile(req: Request, res: Response) {
         const form = new IncomingForm();
-        form.multiples = true;
         form.on('file',(name,file)=>{
-            console.log(file.name);
+            console.log(file.originalFilename);
         });
         form.on('field',(key,value)=>{
             console.log(key)

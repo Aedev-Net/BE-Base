@@ -10,7 +10,7 @@ export class BaseRouter {
         this.roots = [];
     }
 
-    route(method = HttpMethod.GET, url:string,action:any) {
+    route(method:string = HttpMethod.GET, url:string, action:any) {
         switch (method) {
             case HttpMethod.POST:
                 this.router.post(url,action);
