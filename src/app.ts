@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import db from './db/database';
 import route from './routers/routers'
 import AppUser from './models/app-user.model'
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './documents/swagger.json';
 
 class App {
     public app: Application;
@@ -19,6 +21,7 @@ class App {
         this.app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT, type: 'application/json' }));
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this._initRouters();
+        this._initSwagger();
         this._initHandleException();
         new route(this.app)._initRoute();
         // await db.connect();
@@ -45,6 +48,14 @@ class App {
                 res.json(err);
             }
         });
+    }
+
+    private _initSwagger() {
+        const options = {
+            customCss: '.logo__img {' + "content:url('https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r5.png');" + '}',
+        };
+        this.app.use('/api-docs', swaggerUi.serve);
+        this.app.get('/api-docs', swaggerUi.setup(swaggerDocument,options));
     }
 }
 

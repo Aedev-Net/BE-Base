@@ -1,0 +1,120 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Audio API overview",
+    "version": "1.0.0",
+    "description": "A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification",
+    "contact": {
+      "name": "Swagger API Team"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "audio",
+      "description": "Everything about audio"
+    }
+  ],
+  "paths": {
+    "/audios": {
+      "get": {
+        "tags": ["audio"],
+        "operationId": "list-audio",
+        "summary": "List audio lasted",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "page",
+            "description": "page number",
+            "in": "query",
+            "type": "number",
+            "required": false,
+            "default": 1
+          },
+          {
+            "type": "number",
+            "name": "size",
+            "in": "query",
+            "default": 20
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"data\": {\n        \"audios\": [\n            {\n                \"id\": 1,\n                \"name\": \"Quỷ Thi Khát Máu\",\n                \"thumbnail\": \"https://data.zozoplay.com/audio/images/Quy-Thi-Khat-Mau.jpg\",\n                \"status\": \"Hoàn thành\",\n                \"view_count\": 0,\n                \"total_rate\": 7.8,\n                \"created_at\": \"2021-12-29T02:32:01.000Z\",\n                \"total_episode\": 1\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Trộm Đồ Người Âm\",\n                \"thumbnail\": \"https://data.zozoplay.com/audio/images/Trom-Do-Nguoi-Am.jpg\",\n                \"status\": \"Hoàn thành\",\n                \"view_count\": 0,\n                \"total_rate\": 0,\n                \"created_at\": \"2021-12-29T02:32:02.000Z\",\n                \"total_episode\": 1\n            }\n        ],\n        \"page\": \"1\",\n        \"total_page\": 984\n    },\n    \"success\": true\n}"
+            }
+          },
+          "400": {
+            "description": "400 response",
+            "examples": {
+              "application/json": "{\n    \"success\": false,\n    \"errorMessage\": \"Bad Request\"\n}"
+            }
+          },
+          "401": {
+            "description": "401 response",
+            "examples": {
+              "application/json": "{\n    \"success\": false,\n    \"errorMessage\": \"Unauthorized\"\n}"
+            }
+          },
+          "403": {
+            "description": "403 response",
+            "examples": {
+              "application/json": "{\n    \"success\": false,\n    \"errorMessage\": \"Forbidden\"\n}"
+            }
+          },
+          "404": {
+            "description": "404 response",
+            "examples": {
+              "application/json": "{\n    \"success\": false,\n    \"errorCode\": 1,\n    \"errorMessage\": \"Data Not Found\"\n}"
+            }
+          },
+          "500": {
+            "description": "500 response",
+            "examples": {
+              "application/json": "{\n    \"success\": false,\n    \"errorMessage\": \"Internal Server Error\"\n}"
+            }
+          }
+        }
+      }
+    },
+    "/v2": {
+      "get": {
+        "tags": ["audio"],
+        "operationId": "getVersionDetailsv2",
+        "summary": "Show API version details",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200 203 response",
+            "examples": {
+              "application/json": "{\n    \"version\": {\n        \"status\": \"CURRENT\",\n        \"updated\": \"2011-01-21T11:33:21Z\",\n        \"media-types\": [\n            {\n                \"base\": \"application/xml\",\n                \"type\": \"application/vnd.openstack.compute+xml;version=2\"\n            },\n            {\n                \"base\": \"application/json\",\n                \"type\": \"application/vnd.openstack.compute+json;version=2\"\n            }\n        ],\n        \"id\": \"v2.0\",\n        \"links\": [\n            {\n                \"href\": \"http://127.0.0.1:8774/v2/\",\n                \"rel\": \"self\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf\",\n                \"type\": \"application/pdf\",\n                \"rel\": \"describedby\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n                \"type\": \"application/vnd.sun.wadl+xml\",\n                \"rel\": \"describedby\"\n            },\n            {\n              \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n              \"type\": \"application/vnd.sun.wadl+xml\",\n              \"rel\": \"describedby\"\n            }\n        ]\n    }\n}"
+            }
+          },
+          "203": {
+            "description": "200 203 response",
+            "examples": {
+              "application/json": "{\n    \"version\": {\n        \"status\": \"CURRENT\",\n        \"updated\": \"2011-01-21T11:33:21Z\",\n        \"media-types\": [\n            {\n                \"base\": \"application/xml\",\n                \"type\": \"application/vnd.openstack.compute+xml;version=2\"\n            },\n            {\n                \"base\": \"application/json\",\n                \"type\": \"application/vnd.openstack.compute+json;version=2\"\n            }\n        ],\n        \"id\": \"v2.0\",\n        \"links\": [\n            {\n                \"href\": \"http://23.253.228.211:8774/v2/\",\n                \"rel\": \"self\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf\",\n                \"type\": \"application/pdf\",\n                \"rel\": \"describedby\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n                \"type\": \"application/vnd.sun.wadl+xml\",\n                \"rel\": \"describedby\"\n            }\n        ]\n    }\n}"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    }
+  },
+  "consumes": ["application/json"],
+  "definitions": {
+    "Audio": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
