@@ -26,7 +26,7 @@ const ENV = {
     local: 'local',
 };
 
-dotenv.config({path: __dirname + '/../env/.env.example.' + getENVFile()});
+dotenv.config({path: __dirname + '/../env/.env.' + getENVFile()});
 export const appConfig = Object.freeze({
     env: {
         port: process.env.PORT || 3000,

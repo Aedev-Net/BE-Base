@@ -3,7 +3,7 @@ const region = Intl.DateTimeFormat();
 import {appConfig} from '../config/app.config';
 
 const dbConnection = new Sequelize(appConfig.db.database, appConfig.db.user, appConfig.db.password, {
-    host: 'localhost',
+    host: appConfig.db.host,
     dialect: 'mariadb',
     sync: {force: true},
     pool: {
