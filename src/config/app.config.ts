@@ -40,8 +40,8 @@ export const appConfig = Object.freeze({
     },
     db: {
         connectionLimit: 10,
-        host: process.env.HOST,
-        user: process.env.USERNAME,
+        host: '45.76.147.169',
+        user: process.env.USERNAME1,
         password: process.env.PASSWORD,
         database: process.env.DATABASE,
         charset: 'utf8mb4',

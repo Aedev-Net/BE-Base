@@ -3,6 +3,7 @@ import { routers } from '../config/router.config';
 import uploadRouter from './uploadfile.router';
 import downloadRouter from './downloadfile.router';
 import path from 'path';
+import createuserRouter from "./createuser.router";
 
 
 class Routers {
@@ -19,9 +20,10 @@ class Routers {
 
         this.app.use('/api', uploadRouter.getRouter());
         this.app.use('/api', downloadRouter.getRouter());
+        this.app.use('/api', createuserRouter.getRouter());
         downloadRouter.init();
         uploadRouter.init();
-
+        createuserRouter.init();
     }
 
 }

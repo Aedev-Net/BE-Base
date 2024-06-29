@@ -12,6 +12,9 @@ const dbConnection = new Sequelize(appConfig.db.database, appConfig.db.user, app
         acquire: 30000,
         idle: 10000,
     },
+    dialectOptions: {
+        connectTimeout: 60000
+    },
     timezone: region.resolvedOptions().timeZone,
     logging: appConfig.env.stage === 'prod',
 })

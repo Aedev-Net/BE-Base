@@ -12,7 +12,7 @@ function getMessageFromCode(code:number) {
             return ResponseMessage.Unauthorized;
         case HttpCode.Forbidden:
             return ResponseMessage.Forbidden;
-        case HttpCode.ServiceUnavilable:
+        case HttpCode.ServiceUnavailable:
             return ResponseMessage.ServiceUnavilable;
         default:
             return ResponseMessage.InternalServerError;

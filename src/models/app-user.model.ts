@@ -2,7 +2,7 @@ import {BaseModel} from "./base.model";
 import {DataTypes} from "sequelize";
 
 
-class AppUserModel extends BaseModel {
+class AppUserModel extends BaseModel  {
     init() {
         this.name = 'user';
         this.model = {
